@@ -1,0 +1,110 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>uz.gita.code_generator</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Code_Generator</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="axborotxavfsizligi@gmail.com" url="https://www.yourcompany.com">GITA</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+   <h1>Android Studio Code Generator & Dependency Manager</h1>
+
+<p>
+  This plugin is designed to streamline Android development by automating repetitive tasks such as:
+</p>
+
+<ul>
+  <li>Adding required dependencies to <code>build.gradle</code> files for popular libraries like Dagger Hilt.</li>
+  <li>Generating boilerplate code for Android projects, saving developers time and reducing manual errors.</li>
+  <li>Ensuring consistency across project configurations.</li>
+</ul>
+
+<h2>Key Features</h2>
+
+<ul>
+  <li>
+    <strong>Dependency Management:</strong> Automatically adds library dependencies and plugins to both
+    project-level and module-level Gradle files. For example:
+    <ul>
+      <li>Hilt: Adds the Hilt Gradle plugin and required dependencies.</li>
+      <li>Other popular libraries can be configured as needed.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Code Generation:</strong> Generates essential classes and methods, such as boilerplate code
+    for dependency injection, reducing manual work.
+  </li>
+  <li>
+    <strong>Integration with Android Studio:</strong> Easily accessible via the <code>Tools</code> menu,
+    enabling seamless workflow without leaving your IDE.
+  </li>
+</ul>
+
+<h2>How to Use</h2>
+
+<ol>
+  <li>Install the plugin from the JetBrains Plugin Marketplace or add it manually via the settings.</li>
+  <li>Open your Android project in Android Studio.</li>
+  <li>Navigate to <code>Tools > Add Hilt Dependencies</code> to automatically configure your project with Hilt.</li>
+  <li>Use the <code>Tools > Generate Android Code</code> option to quickly generate boilerplate code.</li>
+</ol>
+
+<h2>Why Use This Plugin?</h2>
+
+<p>
+  Manual configuration of Gradle files and code generation can be time-consuming and prone to errors. This plugin
+  ensures:
+</p>
+<ul>
+  <li>Consistency in project setup.</li>
+  <li>Increased productivity for developers.</li>
+  <li>Reduced chances of missing or misconfigured dependencies.</li>
+</ul>
+
+<h2>Requirements</h2>
+<ul>
+  <li>Android Studio 2024.1 or higher</li>
+  <li>Gradle 7.0 or higher</li>
+</ul>
+
+<h2>License</h2>
+<p>This plugin is open-source and available under the MIT license.</p>
+
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.android</depends>
+    <depends>com.intellij.modules.androidstudio</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij"></extensions>
+    <actions>
+        <group id ="MyPlugin.TopMenu"
+               text="_My New Plugin"
+               description="My plugin toolbar menu">
+            <action class="uz.gita.demo.actions.HelloWorldAction"
+                    id = "Demo action"
+                    text="This is test action"
+                    description="this is description">
+                <keyboard-shortcut first-keystroke="control alt p" keymap="$default"/>
+            </action>
+            <add-to-group group-id="MainMenu" anchor="last"/>
+        </group>
+<!--        <action id="GenerateCodeAction" class="uz.gita.demo.actions.GenerateCodeAction" text="Generate Android Code">-->
+<!--            <add-to-group group-id="ToolsMenu" anchor="last"/>-->
+<!--        </action>-->
+<!--        <action id="AddHiltDependenciesAction" class="uz.gita.demo.actions.AddHiltDependencyAction" text="Add Hilt Dependencies">-->
+<!--            <add-to-group group-id="ToolsMenu" anchor="last"/>-->
+<!--        </action>-->
+    </actions>
+</idea-plugin>
